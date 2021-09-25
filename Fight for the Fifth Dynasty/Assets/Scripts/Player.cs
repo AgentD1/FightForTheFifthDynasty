@@ -4,7 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour {
+	public SpriteRenderer Spriterender;
+	public Sprite FacingLeft;
+	public Sprite FacingRight;
+
 	Vector2 directionFacing;
 
 	bool active = true;
@@ -28,10 +33,12 @@ public class Player : MonoBehaviour {
 			TryMoveInDirectionFacing();
 		}
 		if (Input.GetKeyDown(KeyCode.A)) {
+			Spriterender.sprite = FacingLeft;
 			directionFacing = Vector2.left;
 			TryMoveInDirectionFacing();
 		}
 		if (Input.GetKeyDown(KeyCode.D)) {
+			Spriterender.sprite = FacingRight;
 			directionFacing = Vector2.right;
 			TryMoveInDirectionFacing();
 		}
