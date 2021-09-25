@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
 	public SpriteRenderer Spriterender;
 	public Sprite FacingLeft;
 	public Sprite FacingRight;
+	public Sprite FacingUp;
+	public Sprite FacingDown;
 
 	static float t = 0.2f;
 
@@ -37,12 +39,14 @@ public class Player : MonoBehaviour {
 			return;
 		}
 
-		if (Input.GetKeyDown(KeyCode.W)) {
-			directionFacing = Vector2.up;
+		if (Input.GetKey(KeyCode.W)) {
+			Spriterender.sprite = FacingUp;
+			directionFacing = Vector2.up / 2;
 			TryMoveInDirectionFacing();
 		}
-		if (Input.GetKeyDown(KeyCode.S)) {
-			directionFacing = Vector2.down;
+		if (Input.GetKey(KeyCode.S)) {
+			Spriterender.sprite = FacingDown;
+			directionFacing = Vector2.down / 2;
 			TryMoveInDirectionFacing();
 		}
 		if (Input.GetKey(KeyCode.A)) {
