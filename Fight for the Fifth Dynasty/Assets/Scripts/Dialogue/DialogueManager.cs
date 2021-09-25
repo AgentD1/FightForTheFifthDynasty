@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour {
 	[Header("UI Stuff")]
 	public GameObject dialogueRootObject;
 	public TextMeshProUGUI dialogueText;
+	public TextMeshProUGUI nameText;
 	public Image profileSpriteRenderer;
 
 	void Awake() {
@@ -82,7 +83,6 @@ public class DialogueManager : MonoBehaviour {
 		if (currentDialogue.MoveNext()) {
 			remainingLetterTime = 0;
 			currentDialoguePart = currentDialogue.Current;
-			Debug.Log(currentDialoguePart.text);
 			if (currentDialoguePart == null) {
 				EndDialogue();
 				return;
@@ -95,6 +95,7 @@ public class DialogueManager : MonoBehaviour {
 			} else {
 				profileSpriteRenderer.transform.SetAsFirstSibling();
 			}
+			nameText.text = currentDialoguePart.name;
 			profileSpriteRenderer.sprite = currentDialoguePart.profilePicture;
 			OnDialogueProgress.Invoke();
 		} else {
