@@ -516,6 +516,10 @@ MonoBehaviour:
     name: u mom
     profilePicture: {fileID: 21300000, guid: f3c43457c287bce4f9262654509f6b62, type: 3}
     profilePictureOnRight: 0
+  - text: Hi
+    name: u
+    profilePicture: {fileID: 0}
+    profilePictureOnRight: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1150,8 @@ MonoBehaviour:
   OnDialogueProgress:
     m_PersistentCalls:
       m_Calls: []
-  dialogueRootObject: {fileID: 1838997989}
+  letterTime: 0.25
+  dialogueRootObject: {fileID: 1838997988}
   dialogueText: {fileID: 344615678}
   profileSpriteRenderer: {fileID: 2114726108}
 --- !u!1 &1572844472

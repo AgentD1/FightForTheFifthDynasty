@@ -12,11 +12,18 @@ public class Player : MonoBehaviour {
 
 	Vector2 directionFacing;
 
+	DialogueObject mostRecentDialogueObject;
 	bool active = true;
+	bool dialogueEndedThisFrame = false;
 
 	public void Start() {
 		DialogueManager.dialogueManager.OnDialogueStart.AddListener(() => active = false);
-		DialogueManager.dialogueManager.OnDialogueEnd.AddListener(() => active = true);
+		DialogueManager.dialogueManager.OnDialogueEnd.AddListener(() =>
+		{
+			mostRecentDialogueObject.Reset();
+			active = true;
+			dialogueEndedThisFrame = true;
+		});
 	}
 
 	public void Update() {
@@ -43,19 +50,19 @@ public class Player : MonoBehaviour {
 			TryMoveInDirectionFacing();
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (!dialogueEndedThisFrame && Input.GetKeyDown(KeyCode.Space)) {
 			Collider2D[] hit = Physics2D.OverlapCircleAll((Vector2)transform.position + directionFacing, 0.25f);
 			DialogueObject dialogue = (from h in hit
 			                           where h.GetComponent<DialogueObject>() != null
 			                           select h.GetComponent<DialogueObject>()).FirstOrDefault();
-			
-			Debug.Log((Vector2)transform.position + directionFacing);
-			Debug.Log(dialogue);
+
 			if (dialogue != null) {
+				mostRecentDialogueObject = dialogue;
 				DialogueManager.dialogueManager.SetDialogue(dialogue.dialoguePartEnumerator);
 				DialogueManager.dialogueManager.StartDialogue();
 			}
 		}
+		dialogueEndedThisFrame = false;
 	}
 
 	void TryMoveInDirectionFacing() {
