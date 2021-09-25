@@ -14,7 +14,6 @@ public class DialogueManager : MonoBehaviour {
 
 	IEnumerator<DialoguePart> currentDialogue;
 	DialoguePart currentDialoguePart;
-	bool finishedCurrentDialoguePart;
 
 	public float letterTime;
 	float remainingLetterTime;
@@ -97,7 +96,6 @@ public class DialogueManager : MonoBehaviour {
 				profileSpriteRenderer.transform.SetAsFirstSibling();
 			}
 			profileSpriteRenderer.sprite = currentDialoguePart.profilePicture;
-			finishedCurrentDialoguePart = false;
 			OnDialogueProgress.Invoke();
 		} else {
 			EndDialogue();
