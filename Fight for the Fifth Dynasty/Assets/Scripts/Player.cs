@@ -6,19 +6,22 @@ using UnityEngine;
 
 
 public class Player : MonoBehaviour {
-	public SpriteRenderer Spriterender;
-	public Sprite FacingLeft;
-	public Sprite FacingRight;
-	public Sprite FacingUp;
-	public Sprite FacingDown;
+	public SpriteRenderer spriteRenderer;
 
-	static float t = 0.2f;
+	public Sprite facingLeft;
+	public Sprite facingRight;
+	public Sprite facingUp;
+	public Sprite facingDown;
+
+	public float defaultWalkDelay = 0.2f;
+	float walkDelay = 0.2f;
+	public float walkDistance = 0.5f;
 
 	Vector2 directionFacing;
 
 	DialogueObject mostRecentDialogueObject;
 	bool active = true;
-	bool dialogueEndedThisFrame = false;
+	bool dialogueEndedThisFrame;
 
 	public void Start() {
 		DialogueManager.dialogueManager.OnDialogueStart.AddListener(() => active = false);
@@ -31,33 +34,32 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Update() {
-
-		t -= 0.01f - Time.deltaTime;
-
-		if (t <= 0) { 
+		walkDelay -= Time.deltaTime;
 		if (!active) {
 			return;
 		}
 
-		if (Input.GetKey(KeyCode.W)) {
-			Spriterender.sprite = FacingUp;
-			directionFacing = Vector2.up / 2;
-			TryMoveInDirectionFacing();
-		}
-		if (Input.GetKey(KeyCode.S)) {
-			Spriterender.sprite = FacingDown;
-			directionFacing = Vector2.down / 2;
-			TryMoveInDirectionFacing();
-		}
-		if (Input.GetKey(KeyCode.A)) {
-			Spriterender.sprite = FacingLeft;
-			directionFacing = Vector2.left / 2;
-			TryMoveInDirectionFacing();
-		}
-		if (Input.GetKey(KeyCode.D)) {
-				Spriterender.sprite = FacingRight;
-				directionFacing = Vector2.right / 2;
+		if (walkDelay <= 0) {
+			if (Input.GetKey(KeyCode.W)) {
+				spriteRenderer.sprite = facingUp;
+				directionFacing = Vector2.up * walkDistance;
 				TryMoveInDirectionFacing();
+			}
+			if (Input.GetKey(KeyCode.S)) {
+				spriteRenderer.sprite = facingDown;
+				directionFacing = Vector2.down * walkDistance;
+				TryMoveInDirectionFacing();
+			}
+			if (Input.GetKey(KeyCode.A)) {
+				spriteRenderer.sprite = facingLeft;
+				directionFacing = Vector2.left * walkDistance;
+				TryMoveInDirectionFacing();
+			}
+			if (Input.GetKey(KeyCode.D)) {
+				spriteRenderer.sprite = facingRight;
+				directionFacing = Vector2.right * walkDistance;
+				TryMoveInDirectionFacing();
+			}
 		}
 
 		if (!dialogueEndedThisFrame && Input.GetKeyDown(KeyCode.Space)) {
@@ -73,16 +75,12 @@ public class Player : MonoBehaviour {
 			}
 		}
 		dialogueEndedThisFrame = false;
-		t = 0.2f;
 	}
 
-	void TryMoveInDirectionFacing()
-		{
-			if (!Physics2D.CircleCast((Vector2)transform.position + directionFacing, 0.25f, directionFacing, 0.25f))
-			{
-				transform.Translate(directionFacing);
-			}
+	void TryMoveInDirectionFacing() {
+		if (!Physics2D.CircleCast((Vector2)transform.position + directionFacing, 0.25f, directionFacing, 0.25f)) {
+			transform.Translate(directionFacing);
+			walkDelay = defaultWalkDelay;
 		}
-
 	}
 }

@@ -152,9 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d03159968d0d0249a970c5912827f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spriterender: {fileID: 334129228}
-  FacingLeft: {fileID: 21300000, guid: 64a236795fed5ca4189bfc4c06c6adbe, type: 3}
-  FacingRight: {fileID: 21300000, guid: 1ac5aa4a4a9846740b26b196a901b2f6, type: 3}
+  spriteRenderer: {fileID: 334129228}
+  facingLeft: {fileID: 21300000, guid: 64a236795fed5ca4189bfc4c06c6adbe, type: 3}
+  facingRight: {fileID: 21300000, guid: 1ac5aa4a4a9846740b26b196a901b2f6, type: 3}
+  facingUp: {fileID: 21300000, guid: 7848132090b81a546949bbe61813ee21, type: 3}
+  facingDown: {fileID: 21300000, guid: 9c7433cce1d4a9642b6a389286831e25, type: 3}
+  defaultWalkDelay: 0.2
+  walkDistance: 0.5
 --- !u!4 &78921291
 Transform:
   m_ObjectHideFlags: 0
