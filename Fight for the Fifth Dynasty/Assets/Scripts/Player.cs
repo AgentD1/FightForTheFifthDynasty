@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 	public Sprite FacingLeft;
 	public Sprite FacingRight;
 
+	static float t = 0.2f;
+
 	Vector2 directionFacing;
 
 	DialogueObject mostRecentDialogueObject;
@@ -27,6 +29,10 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Update() {
+
+		t -= 0.01f - Time.deltaTime;
+
+		if (t <= 0) { 
 		if (!active) {
 			return;
 		}
@@ -39,15 +45,15 @@ public class Player : MonoBehaviour {
 			directionFacing = Vector2.down;
 			TryMoveInDirectionFacing();
 		}
-		if (Input.GetKeyDown(KeyCode.A)) {
+		if (Input.GetKey(KeyCode.A)) {
 			Spriterender.sprite = FacingLeft;
-			directionFacing = Vector2.left;
+			directionFacing = Vector2.left / 2;
 			TryMoveInDirectionFacing();
 		}
-		if (Input.GetKeyDown(KeyCode.D)) {
-			Spriterender.sprite = FacingRight;
-			directionFacing = Vector2.right;
-			TryMoveInDirectionFacing();
+		if (Input.GetKey(KeyCode.D)) {
+				Spriterender.sprite = FacingRight;
+				directionFacing = Vector2.right / 2;
+				TryMoveInDirectionFacing();
 		}
 
 		if (!dialogueEndedThisFrame && Input.GetKeyDown(KeyCode.Space)) {
@@ -63,11 +69,16 @@ public class Player : MonoBehaviour {
 			}
 		}
 		dialogueEndedThisFrame = false;
+		t = 0.2f;
 	}
 
-	void TryMoveInDirectionFacing() {
-		if (!Physics2D.CircleCast((Vector2)transform.position + directionFacing, 0.25f, directionFacing, 0.25f)) {
-			transform.Translate(directionFacing);
+	void TryMoveInDirectionFacing()
+		{
+			if (!Physics2D.CircleCast((Vector2)transform.position + directionFacing, 0.25f, directionFacing, 0.25f))
+			{
+				transform.Translate(directionFacing);
+			}
 		}
+
 	}
 }
