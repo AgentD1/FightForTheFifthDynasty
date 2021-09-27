@@ -13,8 +13,8 @@ public class MoveTest : MonoBehaviour
     public Sprite facingUp;
     public Sprite facingDown;
 
-    public float defaultWalkDelay = 0.2f;
-    public float walkDelay = 0.2f;
+    public float defaultWalkDelay = 0.6f;
+    public float walkDelay = 0.6f;
     public int u = 3;
     public float walkDistance = 0.5f;
 
@@ -36,25 +36,25 @@ public class MoveTest : MonoBehaviour
             if (u == 3)
             {
                 moveScript.MoveUp();
-                moveScript.TryMoveInDirectionFacing();
+                walkDelay = defaultWalkDelay;
                 u = 2;
             }
             else if (u == 2)
             {
                 moveScript.MoveUp();
-                moveScript.TryMoveInDirectionFacing();
+                walkDelay = defaultWalkDelay;
                 u = 1;
             }
             else if (u == 1)
             {
                 moveScript.MoveDown();
-                moveScript.TryMoveInDirectionFacing();
+                walkDelay = defaultWalkDelay;
                 u = 0;
             }
             else if (u == 0)
             {
                 moveScript.MoveDown();
-                moveScript.TryMoveInDirectionFacing();
+                walkDelay = defaultWalkDelay;
                 u = 3;
             }
         }

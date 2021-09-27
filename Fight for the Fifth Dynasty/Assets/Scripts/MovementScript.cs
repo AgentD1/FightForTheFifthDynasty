@@ -12,8 +12,8 @@ public class MovementScript : MonoBehaviour
     public Sprite facingDown;
     public MovementScript moveScript;
 
-    public float defaultWalkDelay = 0.2f;
-    public float walkDelay = 0.2f;
+    public float defaultWalkDelay = 0.6f;
+    public float walkDelay = 0.6f;
     public float walkDistance = 0.5f;
 
     Vector2 directionFacing;
@@ -35,28 +35,28 @@ public class MovementScript : MonoBehaviour
     {
         spriteRenderer.sprite = facingUp;
         directionFacing = Vector2.up * walkDistance;
-        moveScript.TryMoveInDirectionFacing();
+        transform.Translate(directionFacing);
     }
 
     public void MoveDown()
     {
         spriteRenderer.sprite = facingDown;
         directionFacing = Vector2.down * walkDistance;
-        moveScript.TryMoveInDirectionFacing();
+        transform.Translate(directionFacing);
     }
 
     public void MoveLeft()
     {
         spriteRenderer.sprite = facingLeft;
         directionFacing = Vector2.left * walkDistance;
-        moveScript.TryMoveInDirectionFacing();
+        transform.Translate(directionFacing);
     }
 
     public void MoveRight()
     {
         spriteRenderer.sprite = facingRight;
         directionFacing = Vector2.right * walkDistance;
-        moveScript.TryMoveInDirectionFacing();
+        transform.Translate(directionFacing);
     }
 
     public void TryMoveInDirectionFacing()
