@@ -538,6 +538,8 @@ GameObject:
   - component: {fileID: 419955767}
   - component: {fileID: 419955769}
   - component: {fileID: 419955770}
+  - component: {fileID: 419955771}
+  - component: {fileID: 419955772}
   m_Layer: 0
   m_Name: Crow
   m_TagString: Untagged
@@ -658,6 +660,49 @@ MonoBehaviour:
     name: You
     profilePicture: {fileID: 0}
     profilePictureOnRight: 0
+--- !u!114 &419955771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419955766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b286d3fa4fd8013468b23976e1c6007b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 419955767}
+  moveScript: {fileID: 0}
+  facingLeft: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  facingRight: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  facingUp: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  facingDown: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  defaultWalkDelay: 0.2
+  walkDelay: 0.2
+  u: 2
+  walkDistance: 0.5
+--- !u!114 &419955772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419955766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29124f5f062aee948ae6ab187711b6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 419955767}
+  facingLeft: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  facingRight: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  facingUp: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  facingDown: {fileID: 21300000, guid: 995d3b06efc674f4b8421912aabb57c5, type: 3}
+  moveScript: {fileID: 0}
+  defaultWalkDelay: 0.2
+  walkDelay: 0.2
+  walkDistance: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

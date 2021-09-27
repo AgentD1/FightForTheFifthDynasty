@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveTest : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    public MovementScript moveScript;
 
     public Sprite facingLeft;
     public Sprite facingRight;
@@ -21,7 +22,7 @@ public class MoveTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        moveScript = GetComponent<MovementScript>();
     }
 
     // Update is called once per frame
@@ -33,43 +34,24 @@ public class MoveTest : MonoBehaviour
         {
             if (u == 3)
             {
-                spriteRenderer.sprite = facingUp;
-                directionFacing = Vector2.up * walkDistance;
-                TryMoveInDirectionFacing();
-
+                moveScript.MoveUp();
                 u = 2;
             }
             else if (u == 2)
             {
-                spriteRenderer.sprite = facingUp;
-                directionFacing = Vector2.up * walkDistance;
-                TryMoveInDirectionFacing();
-
+                moveScript.MoveUp();
                 u = 1;
             }
             else if (u == 1)
             {
-                spriteRenderer.sprite = facingDown;
-                directionFacing = Vector2.down * walkDistance;
-                TryMoveInDirectionFacing();
-
+                moveScript.MoveDown();
                 u = 0;
             }
             else if (u == 0)
             {
-                spriteRenderer.sprite = facingDown;
-                directionFacing = Vector2.down * walkDistance;
-                TryMoveInDirectionFacing();
-
+                moveScript.MoveDown();
                 u = 3;
             }
-        }
-        void TryMoveInDirectionFacing()
-        {
-
-                transform.Translate(directionFacing);
-                walkDelay = defaultWalkDelay;
-
         }
     }
 }
