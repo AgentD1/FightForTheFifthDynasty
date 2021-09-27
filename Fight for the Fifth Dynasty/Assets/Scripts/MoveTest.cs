@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveTest : MonoBehaviour
 {
+
     public SpriteRenderer spriteRenderer;
     public MovementScript moveScript;
 
@@ -35,21 +36,25 @@ public class MoveTest : MonoBehaviour
             if (u == 3)
             {
                 moveScript.MoveUp();
+                moveScript.TryMoveInDirectionFacing();
                 u = 2;
             }
             else if (u == 2)
             {
                 moveScript.MoveUp();
+                moveScript.TryMoveInDirectionFacing();
                 u = 1;
             }
             else if (u == 1)
             {
                 moveScript.MoveDown();
+                moveScript.TryMoveInDirectionFacing();
                 u = 0;
             }
             else if (u == 0)
             {
                 moveScript.MoveDown();
+                moveScript.TryMoveInDirectionFacing();
                 u = 3;
             }
         }
