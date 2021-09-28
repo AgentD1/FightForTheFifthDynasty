@@ -8,11 +8,6 @@ public class MoveTest : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public MovementScript moveScript;
 
-    public Sprite facingLeft;
-    public Sprite facingRight;
-    public Sprite facingUp;
-    public Sprite facingDown;
-
     public float defaultWalkDelay = 0.6f;
     public float walkDelay = 0.6f;
     public int u = 3;
