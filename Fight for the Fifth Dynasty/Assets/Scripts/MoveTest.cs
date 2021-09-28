@@ -10,8 +10,14 @@ public class MoveTest : MonoBehaviour
 
     public float defaultWalkDelay = 0.6f;
     public float walkDelay = 0.6f;
-    public int u = 3;
     public float walkDistance = 0.5f;
+
+    bool goingRight = true;
+    bool goingLeft = false;
+    bool goingUp = false;
+    bool goingDown = false;
+    bool notRight = false;
+    bool finished = false;
 
     Vector2 directionFacing;
 
@@ -19,39 +25,67 @@ public class MoveTest : MonoBehaviour
     void Start()
     {
         moveScript = GetComponent<MovementScript>();
+        moveScript.up = 2;
+        moveScript.down = 0;
+        moveScript.right = 4;
+        moveScript.left = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        walkDelay -= Time.deltaTime;
-
-        if (walkDelay <= 0)
+        /*if (moveScript.up == 0 && moveScript.down == 0)
         {
-            if (u == 3)
+            moveScript.up = 2;
+            moveScript.down = 2;
+        }*/
+
+        if (moveScript.right == 0)
+        {
+            goingRight = false;
+        }
+        if (moveScript.up == 0)
+        {
+            goingUp = false;
+        }
+
+        if (finished == true && moveScript.up == 0)
+        {
+            goingRight = true;
+            goingLeft = false;
+            goingUp = false;
+            goingDown = false;
+            notRight = false;
+            finished = false;
+
+            moveScript.up = 2;
+            moveScript.right = 4;
+        }
+
+        if (goingUp == false && notRight == false && goingRight == false)
+        {
+            notRight = true;
+            goingDown = true;
+            moveScript.down = 4;
+        }
+        else if (goingDown == true && moveScript.down == 0)
+        {
+            if (goingLeft == false)
             {
-                moveScript.MoveUp();
-                walkDelay = defaultWalkDelay;
-                u = 2;
+                moveScript.left = 4;
             }
-            else if (u == 2)
+
+            goingLeft = true;
+
+            if (moveScript.left == 0 && finished == false) 
             {
-                moveScript.MoveUp();
-                walkDelay = defaultWalkDelay;
-                u = 1;
-            }
-            else if (u == 1)
-            {
-                moveScript.MoveDown();
-                walkDelay = defaultWalkDelay;
-                u = 0;
-            }
-            else if (u == 0)
-            {
-                moveScript.MoveDown();
-                walkDelay = defaultWalkDelay;
-                u = 3;
+                moveScript.up = 2;
+                finished = true;
             }
         }
+
+
+
+
     }
 }
