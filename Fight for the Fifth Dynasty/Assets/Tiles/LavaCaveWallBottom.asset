@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: LavaCaveWallBottom
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -608739183730485593, guid: 441cb7c00f06e5546a32ca7b145cf5a4, type: 3}
+  - {fileID: -6290340243874028364, guid: 441cb7c00f06e5546a32ca7b145cf5a4, type: 3}
+  - {fileID: -608739183730485593, guid: 441cb7c00f06e5546a32ca7b145cf5a4, type: 3}
+  - {fileID: -1791244329829154456, guid: 441cb7c00f06e5546a32ca7b145cf5a4, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
