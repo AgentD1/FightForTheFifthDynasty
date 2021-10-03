@@ -13,9 +13,9 @@ public class Player : MonoBehaviour {
 	public Sprite facingUp;
 	public Sprite facingDown;
 
-	public float defaultWalkDelay = 0.2f;
-	float walkDelay = 0.2f;
-	public float walkDistance = 0.5f;
+	public float defaultWalkDelay = 0.05f;
+	float walkDelay = 0.05f;
+	public float walkDistance = 0.125f;
 
 	Vector2 directionFacing;
 
