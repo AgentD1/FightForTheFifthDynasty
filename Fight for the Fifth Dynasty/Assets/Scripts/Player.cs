@@ -14,8 +14,18 @@ public class Player : MonoBehaviour {
 	public Sprite facingDown;
 
 	public float defaultWalkDelay = 0.05f;
-	float walkDelay = 0.05f;
+	public float walkDelay = 0.05f;
 	public float walkDistance = 0.125f;
+
+	public static float playerX = 0.5f;
+	public static float playerY = 0.5f;
+
+	public float testx = 0;
+	public float testy = 0;
+
+	public static float health = 5;
+	public static float maxHealth = 5;
+
 
 	Vector2 directionFacing;
 
@@ -35,6 +45,13 @@ public class Player : MonoBehaviour {
 
 	public void Update() {
 		walkDelay -= Time.deltaTime;
+
+		playerX = transform.position.x;
+		playerY = transform.position.y;
+		
+		testx = playerX;
+		testy = playerY;
+
 		if (!active) {
 			return;
 		}
@@ -43,6 +60,8 @@ public class Player : MonoBehaviour {
 			if (Input.GetKey(KeyCode.W)) {
 				spriteRenderer.sprite = facingUp;
 				directionFacing = Vector2.up * walkDistance;
+				playerY += 0.5f;
+				health = health - 1;
 				TryMoveInDirectionFacing();
 			}
 			if (Input.GetKey(KeyCode.S)) {
