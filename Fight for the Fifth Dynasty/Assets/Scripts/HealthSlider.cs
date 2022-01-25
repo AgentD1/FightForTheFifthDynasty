@@ -13,7 +13,7 @@ public class HealthSlider : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		float fillValue = Player.health;
+		float fillValue = Player.instance.health;
 		slider.value = fillValue;
 
 		if (fillValue < 0) {

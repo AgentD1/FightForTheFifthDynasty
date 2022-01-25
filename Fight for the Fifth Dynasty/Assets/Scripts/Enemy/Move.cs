@@ -2,47 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
-{
-    public SpriteRenderer spriteRenderer;
+public class Move : MonoBehaviour {
+	public SpriteRenderer spriteRenderer;
 
-    public float defaultWalkDelay = 0.05f;
+	public float defaultWalkDelay = 0.05f;
 	public float walkDelay = 0.05f;
-    public float walkDistance = 0.125f;
+	public float walkDistance = 0.125f;
 
-    public Sprite facingLeft;
+	public Sprite facingLeft;
 	public Sprite facingRight;
 	public Sprite facingUp;
 	public Sprite facingDown;
 
 	Vector2 directionFacing;
 
-	public static float playerX;
-	public static float playerY;
-    public float targetX;
-    public float targetY;
-    public float enemyX;
-    public float enemyY;
+	public float targetX;
+	public float targetY;
+	public float enemyX;
+	public float enemyY;
+
 	public static List<GameObject> playerObject;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start() {
 
-    // Update is called once per frame
-    void Update()
-    {
-		targetX = Player.playerX;
-        targetY = Player.playerY;
+	}
 
-        enemyX = transform.position.x;
+	// Update is called once per frame
+	void Update() {
+		targetX = Player.instance.transform.position.x;
+		targetY = Player.instance.transform.position.y;
+
+		enemyX = transform.position.x;
 		enemyY = transform.position.y;
 
-        walkDelay -= Time.deltaTime;
+		walkDelay -= Time.deltaTime;
 
-        if (walkDelay <= 0) {
+		if (walkDelay <= 0) {
 			if (targetY > enemyY) {
 				Debug.Log("Up");
 				spriteRenderer.sprite = facingUp;
@@ -68,11 +64,11 @@ public class Move : MonoBehaviour
 				TryMoveInDirectionFacing();
 			}
 
-            walkDelay = defaultWalkDelay;
+			walkDelay = defaultWalkDelay;
 		}
-    }
+	}
 
 	void TryMoveInDirectionFacing() {
-			transform.Translate(directionFacing);
+		transform.Translate(directionFacing);
 	}
 }
