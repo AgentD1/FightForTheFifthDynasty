@@ -13,18 +13,15 @@ public class Player : MonoBehaviour {
 	public Sprite facingUp;
 	public Sprite facingDown;
 
-	public float defaultWalkDelay = 0.05f;
-	public float walkDelay = 0.05f;
-	public float walkDistance = 0.125f;
+	public float walkSpeed = 2.5f;
 
 	public static float playerX = 0.5f;
 	public static float playerY = 0.5f;
 
-	public float testx = 0;
-	public float testy = 0;
-
 	public static float health = 5;
 	public static float maxHealth = 5;
+
+	Rigidbody2D rigidbody2D;
 
 
 	Vector2 directionFacing;
@@ -34,23 +31,45 @@ public class Player : MonoBehaviour {
 	bool dialogueEndedThisFrame;
 
 	public void Start() {
+		rigidbody2D = GetComponent<Rigidbody2D>();
+
 		DialogueManager.dialogueManager.OnDialogueStart.AddListener(() => active = false);
-		DialogueManager.dialogueManager.OnDialogueEnd.AddListener(() =>
-		{
+		DialogueManager.dialogueManager.OnDialogueEnd.AddListener(() => {
 			mostRecentDialogueObject.Reset();
 			active = true;
 			dialogueEndedThisFrame = true;
 		});
 	}
 
+	public void FixedUpdate() {
+		Vector2 desiredVelocity = Vector2.zero;
+
+		if (Input.GetKey(KeyCode.W)) {
+			desiredVelocity += Vector2.up;
+		}
+		if (Input.GetKey(KeyCode.S)) {
+			desiredVelocity += Vector2.down;
+		}
+		if (Input.GetKey(KeyCode.A)) {
+			desiredVelocity += Vector2.left;
+		}
+		if (Input.GetKey(KeyCode.D)) {
+			desiredVelocity += Vector2.right;
+		}
+
+		if (desiredVelocity != Vector2.zero) {
+			desiredVelocity.Normalize();
+		}
+
+		rigidbody2D.velocity = desiredVelocity * (walkSpeed * Time.fixedDeltaTime);
+	}
+
 	public void Update() {
+		/*
 		walkDelay -= Time.deltaTime;
 
 		playerX = transform.position.x;
 		playerY = transform.position.y;
-		
-		testx = playerX;
-		testy = playerY;
 
 		if (!active) {
 			return;
@@ -100,6 +119,6 @@ public class Player : MonoBehaviour {
 		if (!Physics2D.CircleCast((Vector2)transform.position + directionFacing, 0.25f, directionFacing, 0.25f)) {
 			transform.Translate(directionFacing);
 			walkDelay = defaultWalkDelay;
-		}
+		}*/
 	}
 }

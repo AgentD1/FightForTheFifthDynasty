@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthSlider : MonoBehaviour
-{
-    public Player player;
-    public Image fillImage;
-    private Slider slider;
+public class HealthSlider : MonoBehaviour {
+	private Slider slider;
 
-    // Start is called before the first frame update
-    void Start()
-    {   
-        slider = GetComponent<Slider>();
-    }
+	// Start is called before the first frame update
+	void Start() {
+		slider = GetComponent<Slider>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        float fillValue = Player.health;
-        slider.value = fillValue;
+	// Update is called once per frame
+	void Update() {
+		float fillValue = Player.health;
+		slider.value = fillValue;
 
-        if (fillValue < 0 ){
-            fillValue = 0;
-        }
-    }
+		if (fillValue < 0) {
+			fillValue = 0;
+		}
+	}
 }
