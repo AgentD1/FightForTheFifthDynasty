@@ -22,13 +22,19 @@ public class Player : MonoBehaviour {
 	public static float maxHealth = 5;
 
 	Rigidbody2D rigidbody2D;
-
+	
+	
+	private Inventory inventory;
 
 	Vector2 directionFacing;
 
 	DialogueObject mostRecentDialogueObject;
 	bool active = true;
 	bool dialogueEndedThisFrame;
+
+	public void Awake(){
+		inventory = new Inventory();
+	}
 
 	public void Start() {
 		rigidbody2D = GetComponent<Rigidbody2D>();
