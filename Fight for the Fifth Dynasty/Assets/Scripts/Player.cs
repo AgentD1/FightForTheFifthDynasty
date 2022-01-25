@@ -62,6 +62,7 @@ public class Player : MonoBehaviour {
 				directionFacing = Vector2.up * walkDistance;
 				playerY += 0.5f;
 				health = health - 1;
+				Debug.Log(health);
 				TryMoveInDirectionFacing();
 			}
 			if (Input.GetKey(KeyCode.S)) {

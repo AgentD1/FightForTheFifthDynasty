@@ -72,7 +72,7 @@ public class Move : MonoBehaviour
 		}
     }
 
-    void TryMoveInDirectionFacing() {
+	void TryMoveInDirectionFacing() {
 			transform.Translate(directionFacing);
 	}
 }
