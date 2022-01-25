@@ -18,7 +18,7 @@ public class HealthSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float fillValue = Player.health / Player.maxHealth;
+        float fillValue = Player.health;
         slider.value = fillValue;
 
         if (fillValue < 0 ){
