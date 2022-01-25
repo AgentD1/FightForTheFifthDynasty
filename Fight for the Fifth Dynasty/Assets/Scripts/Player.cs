@@ -26,12 +26,18 @@ public class Player : MonoBehaviour {
 	public static float health = 5;
 	public static float maxHealth = 5;
 
+	private Inventory inventory;
+
 
 	Vector2 directionFacing;
 
 	DialogueObject mostRecentDialogueObject;
 	bool active = true;
 	bool dialogueEndedThisFrame;
+
+	public void Awake(){
+		inventory = new Inventory();
+	}
 
 	public void Start() {
 		DialogueManager.dialogueManager.OnDialogueStart.AddListener(() => active = false);
