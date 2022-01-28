@@ -41,7 +41,7 @@ public class Player : MonoBehaviour {
 		inventory = new Inventory();
 		uiInventory.SetInventory(inventory);
 
-		ItemWorld.SpawnItemWorld(new Vector3(20,20), new Item {itemType = Item.ItemType.Potion, amount = 1});
+		ItemWorld.SpawnItemWorld(new Vector3(2,2), new Item {itemType = Item.ItemType.Potion, amount = 1});
 	}
 
 	public void Start() {
@@ -100,5 +100,14 @@ public class Player : MonoBehaviour {
 			}
 		}
 		dialogueEndedThisFrame = false;
+	}
+
+	private void OnTriggerEnter2D(Collider2D collider){
+		ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+		if (itemWorld != null){
+			//Touchng Item
+			inventory.AddItem(itemWorld.GetItem());
+			itemWorld.DestroySelf();
+		}
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemWorld : MonoBehaviour
 {
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item) {
-        Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.identity);
+        GameObject transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.identity);
 
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
@@ -22,5 +22,13 @@ public class ItemWorld : MonoBehaviour
     public void SetItem(Item item){
         this.item = item;
         spriteRenderer.sprite = item.GetSprite();
+    }
+
+    public Item GetItem(){
+        return item;
+    }
+
+    public void DestroySelf(){
+        Destroy(gameObject);
     }
 }
