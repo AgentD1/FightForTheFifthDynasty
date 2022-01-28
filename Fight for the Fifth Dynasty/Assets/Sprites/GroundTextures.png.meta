@@ -324,6 +324,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2500,6 +2501,107 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GroundTextures_26: 6433505624679023269
+      GroundTextures_30: -8297907048520918073
+      GroundTextures_32: 1933662684688801604
+      GroundTextures_68: -5783285904499194377
+      GroundTextures_34: 841533056304795887
+      GroundTextures_70: 4530194555981849374
+      GroundTextures_11: -4410517244062226053
+      GroundTextures_39: -8277430494342267907
+      GroundTextures_61: 3337592064580295009
+      GroundTextures_95: -6123753160536189382
+      GroundTextures_9: -8674152040824823210
+      GroundTextures_42: -1295291019739819375
+      GroundTextures_49: 8696258862700089388
+      GroundTextures_63: 8837918904025454095
+      GroundTextures_86: -7663064885332507008
+      GroundTextures_58: -1518317209183740581
+      GroundTextures_17: 8062339118391318970
+      GroundTextures_40: -6809974021342166524
+      GroundTextures_27: 2890186175083090802
+      GroundTextures_82: -8947867498575650993
+      GroundTextures_47: -9096844311064752010
+      GroundTextures_33: 1717458018176900013
+      GroundTextures_48: 7622746399052496607
+      GroundTextures_16: 8464831129284080359
+      GroundTextures_92: -8127404459045235193
+      GroundTextures_62: 1895524489187338528
+      GroundTextures_76: 6914469468823355763
+      GroundTextures_66: -3774514474101626034
+      GroundTextures_55: 937639975062064425
+      GroundTextures_67: -7822333651251458517
+      GroundTextures_60: 3823384051623783884
+      GroundTextures_22: 4899747928835901845
+      GroundTextures_5: 2988876080221629783
+      GroundTextures_0: 8359930046211358305
+      GroundTextures_53: -3276901822026538904
+      GroundTextures_44: 5220185573340347559
+      GroundTextures_28: -608739183730485593
+      GroundTextures_90: 2310661786196260728
+      GroundTextures_54: -2203021478115922787
+      GroundTextures_51: -2032207863004289000
+      GroundTextures_20: 7887386127096477651
+      GroundTextures_81: 4744390994578009024
+      GroundTextures_19: 7865695157850269913
+      GroundTextures_41: 4927494335557772540
+      GroundTextures_98: 8707182718839871411
+      GroundTextures_74: -3319332226439130615
+      GroundTextures_7: -729735627986505279
+      GroundTextures_24: 4870187338847425694
+      GroundTextures_71: 5040238118830661523
+      GroundTextures_88: 7912019563388807789
+      GroundTextures_1: 2247211366510687529
+      GroundTextures_23: 6936988184728884044
+      GroundTextures_10: -8306394128908174466
+      GroundTextures_18: 9168592924623177868
+      GroundTextures_87: 4582345137101112425
+      GroundTextures_79: -6572962720399521275
+      GroundTextures_69: -2150249142041450890
+      GroundTextures_91: 3080869639496576301
+      GroundTextures_37: 4719884450064419420
+      GroundTextures_6: -1672748425237391233
+      GroundTextures_65: -4079636797993638719
+      GroundTextures_75: -3544077016918799758
+      GroundTextures_89: 5781281760442592564
+      GroundTextures_99: 4200872460098206152
+      GroundTextures_12: -5029649536811827307
+      GroundTextures_13: -7098277873127359996
+      GroundTextures_15: -3952793779880054243
+      GroundTextures_80: 620458587982349846
+      GroundTextures_25: 4417710327096647943
+      GroundTextures_29: -6290340243874028364
+      GroundTextures_52: -8630063908286851621
+      GroundTextures_38: -1791244329829154456
+      GroundTextures_78: -5505484007459327467
+      GroundTextures_57: 3857295620864068797
+      GroundTextures_14: 8543507432638003433
+      GroundTextures_3: 4827892954699375507
+      GroundTextures_36: 2064003221723224706
+      GroundTextures_84: -6835683873383064487
+      GroundTextures_64: -537731671242821457
+      GroundTextures_31: 5543232566598180498
+      GroundTextures_4: -7358428122294465301
+      GroundTextures_35: 7499792145448708795
+      GroundTextures_45: 7377330661366721573
+      GroundTextures_96: 3516441880346250145
+      GroundTextures_94: 6051039204055155327
+      GroundTextures_43: 1518594349551901935
+      GroundTextures_72: -7817705368419139774
+      GroundTextures_59: 3339369251040782246
+      GroundTextures_2: 3516295966197278095
+      GroundTextures_8: -5717379459532627177
+      GroundTextures_85: -6808216563381432996
+      GroundTextures_97: 6326958486044069100
+      GroundTextures_56: 4220213137514782065
+      GroundTextures_93: 6736016062945779591
+      GroundTextures_77: 5456988475005116119
+      GroundTextures_21: -8660989381159933341
+      GroundTextures_83: 419290484369848227
+      GroundTextures_46: 8263502774456413112
+      GroundTextures_73: 67557128079598890
+      GroundTextures_50: -6782743251088200033
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
