@@ -40,25 +40,21 @@ public class Move : MonoBehaviour {
 
 		if (walkDelay <= 0) {
 			if (targetY > enemyY) {
-				Debug.Log("Up");
 				spriteRenderer.sprite = facingUp;
 				directionFacing = Vector2.up * walkDistance;
 				TryMoveInDirectionFacing();
 			}
 			if (targetY < enemyY) {
-				Debug.Log("Down");
 				spriteRenderer.sprite = facingDown;
 				directionFacing = Vector2.down * walkDistance;
 				TryMoveInDirectionFacing();
 			}
 			if (targetX < enemyX) {
-				Debug.Log("Left");
 				spriteRenderer.sprite = facingLeft;
 				directionFacing = Vector2.left * walkDistance;
 				TryMoveInDirectionFacing();
 			}
 			if (targetX > enemyX) {
-				Debug.Log("Right");
 				spriteRenderer.sprite = facingRight;
 				directionFacing = Vector2.right * walkDistance;
 				TryMoveInDirectionFacing();

@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 
 	Rigidbody2D rigidbody2D;
 
-
+	[SerializeField] private UI_Inventory uiInventory;
 	private Inventory inventory;
 
 	Vector2 directionFacing;
@@ -39,6 +39,9 @@ public class Player : MonoBehaviour {
 		instance = this;
 
 		inventory = new Inventory();
+		uiInventory.SetInventory(inventory);
+
+		ItemWorld.SpawnItemWorld(new Vector3(20,20), new Item {itemType = Item.ItemType.Potion, amount = 1});
 	}
 
 	public void Start() {
