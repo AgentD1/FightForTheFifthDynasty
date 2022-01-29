@@ -41,33 +41,38 @@ public class UI_Inventory : MonoBehaviour
         float itemSlotCellSize = 110f;
         foreach (Item item in inventory.GetItemList()) {
             if (item.amount > 0){
-                RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
-                itemSlotRectTransform.gameObject.SetActive(true);
-
-                itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () => {
-                //Use Item
-                inventory.UseItem(item);
-                };
-
-                itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize + 200);
-                Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-                image.sprite = item.GetSprite();
-
-                TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
-                if (item.amount > 1){
-                    uiText.SetText(item.amount.ToString());
+                if (item.itemType == Item.ItemType.Coin){
+                    TextMeshProUGUI balance = GameObject.Find("Balance").GetComponent<TextMeshProUGUI>();
+                    balance.SetText(item.amount.ToString());
                 } else {
-                    uiText.SetText("");
-                }
+                    RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+                    itemSlotRectTransform.gameObject.SetActive(true);
 
-                if (item.amount <= 1){
-                    Destroy(itemSlotRectTransform.Find("backgroundText").GetComponent<Image>());
-                }
+                    itemSlotRectTransform.GetComponent<Button_UI>().ClickFunc = () => {
+                    //Use Item
+                    inventory.UseItem(item);
+                    };
 
-                x++;
-                if (x > 4){
-                    x = 0;
-                    y++;
+                    itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize + 200);
+                    Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
+                    image.sprite = item.GetSprite();
+
+                    TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
+                    if (item.amount > 1){
+                        uiText.SetText(item.amount.ToString());
+                    } else {
+                        uiText.SetText("");
+                    }
+
+                    if (item.amount <= 1){
+                        Destroy(itemSlotRectTransform.Find("backgroundText").GetComponent<Image>());
+                    }
+
+                    x++;
+                    if (x > 4){
+                        x = 0;
+                        y++;
+                }
                 }
             }
         }

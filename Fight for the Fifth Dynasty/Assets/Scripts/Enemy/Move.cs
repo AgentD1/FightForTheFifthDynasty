@@ -30,7 +30,7 @@ public class Move : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		/*targetX = Player.instance.transform.position.x;
+		targetX = Player.instance.transform.position.x;
 		targetY = Player.instance.transform.position.y;
 
 		enemyX = transform.position.x;
@@ -61,7 +61,7 @@ public class Move : MonoBehaviour {
 			}
 
 			walkDelay = defaultWalkDelay;
-		}*/
+		}
 	}
 
 	void TryMoveInDirectionFacing() {
