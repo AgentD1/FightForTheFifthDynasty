@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 
 	public float walkSpeed = 2.5f;
 
-	public float health = 5;
+	public float health = 3;
 	public float maxHealth = 5;
 
 	public static Player instance;
@@ -38,7 +38,8 @@ public class Player : MonoBehaviour {
 		}
 		instance = this;
 
-		inventory = new Inventory();
+		inventory = new Inventory(UseItem);
+		uiInventory.SetPlayer(this);
 		uiInventory.SetInventory(inventory);
 
 		ItemWorld.SpawnItemWorld(new Vector3(2,2), new Item {itemType = Item.ItemType.Potion, amount = 1});
@@ -108,6 +109,19 @@ public class Player : MonoBehaviour {
 			//Touchng Item
 			inventory.AddItem(itemWorld.GetItem());
 			itemWorld.DestroySelf();
+		}
+	}
+
+	private void UseItem(Item item){
+		switch(item.itemType){
+		case Item.ItemType.Potion:
+			if (health < 5){
+				health = health + 1;
+				inventory.RemoveItem(new Item { itemType = Item.ItemType.Potion, amount = 1});
+			}
+			break;
+		case Item.ItemType.Sword:
+			break;
 		}
 	}
 }
