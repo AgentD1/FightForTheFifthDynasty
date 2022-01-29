@@ -34,8 +34,6 @@ public class Player : MonoBehaviour {
 	bool active = true;
 	bool dialogueEndedThisFrame;
 
-	float stepTimer = 1;
-
 	public void Awake() {
 		if (instance != null) {
 			Debug.LogError("There's 2 player objects. Screw off.");
@@ -97,11 +95,8 @@ public class Player : MonoBehaviour {
 	}
 
 	public void stepSound(){
-		stepTimer -= Time.deltaTime;
-
-		if (stepTimer <= 0){
+		if (!step.isPlaying){
 			step.Play();
-			stepTimer = 1;
 		}
 	}
 
