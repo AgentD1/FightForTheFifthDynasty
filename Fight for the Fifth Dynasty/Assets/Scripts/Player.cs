@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
 	public Sprite facingUp;
 	public Sprite facingDown;
 
+	public AudioSource drink;
+
 	public float walkSpeed = 2.5f;
 
 	public float health = 3;
@@ -118,6 +120,7 @@ public class Player : MonoBehaviour {
 			if (health < 5){
 				health = health + 1;
 				inventory.RemoveItem(new Item { itemType = Item.ItemType.Potion, amount = 1});
+				drink.Play();
 			}
 			break;
 		case Item.ItemType.Sword:
