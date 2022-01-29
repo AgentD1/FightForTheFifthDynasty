@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	public Sprite facingDown;
 
 	public AudioSource drink;
+	public AudioSource step;
 
 	public float walkSpeed = 2.5f;
 
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour {
 	DialogueObject mostRecentDialogueObject;
 	bool active = true;
 	bool dialogueEndedThisFrame;
+
+	float stepTimer = 1;
 
 	public void Awake() {
 		if (instance != null) {
@@ -65,21 +68,25 @@ public class Player : MonoBehaviour {
 			spriteRenderer.sprite = facingUp;
 			directionFacing = Vector2.up;
 			desiredVelocity += Vector2.up;
+			stepSound();
 		}
 		if (Input.GetKey(KeyCode.S)) {
 			spriteRenderer.sprite = facingDown;
 			directionFacing = Vector2.down;
 			desiredVelocity += Vector2.down;
+			stepSound();
 		}
 		if (Input.GetKey(KeyCode.A)) {
 			spriteRenderer.sprite = facingLeft;
 			directionFacing = Vector2.left;
 			desiredVelocity += Vector2.left;
+			stepSound();
 		}
 		if (Input.GetKey(KeyCode.D)) {
 			spriteRenderer.sprite = facingRight;
 			directionFacing = Vector2.right;
 			desiredVelocity += Vector2.right;
+			stepSound();
 		}
 
 		if (desiredVelocity != Vector2.zero) {
@@ -87,6 +94,15 @@ public class Player : MonoBehaviour {
 		}
 
 		rigidbody2D.velocity = desiredVelocity * (walkSpeed * Time.fixedDeltaTime);
+	}
+
+	public void stepSound(){
+		stepTimer -= Time.deltaTime;
+
+		if (stepTimer <= 0){
+			step.Play();
+			stepTimer = 1;
+		}
 	}
 
 	public void Update() {
