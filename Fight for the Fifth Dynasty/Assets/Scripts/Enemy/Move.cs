@@ -23,12 +23,6 @@ public class Move : MonoBehaviour {
 
 	public static List<GameObject> playerObject;
 
-	// Start is called before the first frame update
-	void Start() {
-
-	}
-
-	// Update is called once per frame
 	void Update() {
 		targetX = Player.instance.transform.position.x;
 		targetY = Player.instance.transform.position.y;
