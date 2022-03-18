@@ -13,8 +13,7 @@ public class UI_Inventory : MonoBehaviour
     private Player player;
 
     private void Awake(){
-        itemSlotContainer = transform.Find("itemSlotContainer");
-        itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+
     }
 
     public void SetPlayer(Player player){
@@ -39,6 +38,7 @@ public class UI_Inventory : MonoBehaviour
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 110f;
+        
         foreach (Item item in inventory.GetItemList()) {
             if (item.amount > 0){
                 if (item.itemType == Item.ItemType.Coin){
@@ -75,6 +75,8 @@ public class UI_Inventory : MonoBehaviour
                 }
                 }
             }
+            itemSlotContainer = transform.Find("itemSlotContainer");
+            itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
         }
     }
 }

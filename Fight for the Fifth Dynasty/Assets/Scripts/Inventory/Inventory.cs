@@ -16,8 +16,6 @@ public class Inventory
         AddItem(new Item {itemType = Item.ItemType.Sword, amount = 1});
         AddItem(new Item {itemType = Item.ItemType.Coin, amount = 1});
         AddItem(new Item {itemType = Item.ItemType.Potion, amount = 1});
-
-        Debug.Log(itemList.Count);
     }
 
     public void AddItem(Item item){

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEditor.Animations;
 
 
 public class Player : MonoBehaviour {
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour {
 	public AudioSource drink;
 	public AudioSource step;
 
+	public Animator animator;
+
 	public float walkSpeed = 2.5f;
 
 	public float health = 3;
@@ -28,11 +31,23 @@ public class Player : MonoBehaviour {
 	[SerializeField] private UI_Inventory uiInventory;
 	private Inventory inventory;
 
+    [SerializeField]
+    GameObject AttackPoint;
+    float AttackRange;
+    [SerializeField]
+    LayerMask Enemylayer;
+    bool attacked = false;
+
 	Vector2 directionFacing;
 
 	DialogueObject mostRecentDialogueObject;
 	bool active = true;
 	bool dialogueEndedThisFrame;
+
+	bool attackUp = false;
+	bool attackDown = false;
+	bool attackLeft = false;
+	bool attackRight = false;
 
 	public void Awake() {
 		if (instance != null) {
@@ -44,8 +59,6 @@ public class Player : MonoBehaviour {
 		inventory = new Inventory(UseItem);
 		uiInventory.SetPlayer(this);
 		uiInventory.SetInventory(inventory);
-
-		ItemWorld.SpawnItemWorld(new Vector3(2,2), new Item {itemType = Item.ItemType.Potion, amount = 1});
 	}
 
 	public void Start() {
@@ -135,7 +148,71 @@ public class Player : MonoBehaviour {
 			}
 			break;
 		case Item.ItemType.Sword:
+			if (spriteRenderer.sprite == facingUp && attacked == false){
+				attackUp = true;
+				AttackPoint.transform.position += Vector3.up;
+				StartCoroutine(attack());
+			}
+			else if (spriteRenderer.sprite == facingDown && attacked == false){
+					attackDown = true;
+					AttackPoint.transform.position += Vector3.down;
+					StartCoroutine(attack());
+				}
+			else if (spriteRenderer.sprite == facingLeft && attacked == false){
+					attackLeft = true;
+					AttackPoint.transform.position += Vector3.left;
+					StartCoroutine(attack());
+				}
+			else if (spriteRenderer.sprite == facingRight && attacked == false){
+					attackRight = true;
+					AttackPoint.transform.position += Vector3.right;
+					StartCoroutine(attack());
+				}
 			break;
 		}
+	}
+	IEnumerator attack(){
+		Collider2D[] Enemies = Physics2D.OverlapCircleAll(AttackPoint.transform.position, AttackRange, Enemylayer);
+
+		foreach(Collider2D enemy in Enemies){
+			if(enemy.CompareTag("Enemy")){
+				Destroy(enemy.gameObject);
+			}
+		}
+
+		if (attackUp == true){
+			animator.SetTrigger("AttackUp");
+		}
+		else if (attackDown == true){
+			animator.SetTrigger("AttackDown");
+		}
+		else if (attackLeft == true){
+			animator.SetTrigger("AttackLeft");
+		}
+		else if (attackRight == true){
+			animator.SetTrigger("AttackRight");
+		}
+ 
+		attacked = true;
+		yield return new WaitForSeconds(0.8f);
+		attacked = false;
+
+		if (attackUp == true){
+			AttackPoint.transform.position -= Vector3.up;
+		}
+		else if (attackDown == true){
+			AttackPoint.transform.position -= Vector3.down;
+		}
+		else if (attackLeft == true){
+			AttackPoint.transform.position -= Vector3.left;
+		}
+		else if (attackRight == true){
+			AttackPoint.transform.position -= Vector3.right;
+		}
+
+		attackUp = false;
+		attackDown = false;
+		attackLeft = false;
+		attackRight = false;
 	}
 }

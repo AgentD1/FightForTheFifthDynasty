@@ -17,6 +17,7 @@ public class ItemWorld : MonoBehaviour
 
     private Item item;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -24,6 +25,14 @@ public class ItemWorld : MonoBehaviour
     public void SetItem(Item item){
         this.item = item;
         spriteRenderer.sprite = item.GetSprite();
+        
+        if (item.GetAnimation() != null){
+            animator = GetComponent<Animator>();
+        }
+
+        if (item.GetAnimation() != null){
+            animator.runtimeAnimatorController = item.GetAnimation();
+        }
     }
 
     public Item GetItem(){
