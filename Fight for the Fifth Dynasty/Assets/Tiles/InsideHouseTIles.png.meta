@@ -107,7 +107,7 @@ TextureImporter:
       name: InsideHouseTIles_0
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 32
         width: 16
         height: 16
@@ -128,7 +128,7 @@ TextureImporter:
       name: InsideHouseTIles_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 32
         width: 16
         height: 16
@@ -149,8 +149,8 @@ TextureImporter:
       name: InsideHouseTIles_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -170,7 +170,7 @@ TextureImporter:
       name: InsideHouseTIles_3
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 16
         width: 16
         height: 16
@@ -191,7 +191,7 @@ TextureImporter:
       name: InsideHouseTIles_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 16
         width: 16
         height: 16
@@ -212,7 +212,7 @@ TextureImporter:
       name: InsideHouseTIles_5
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 16
         width: 16
         height: 16
@@ -233,8 +233,8 @@ TextureImporter:
       name: InsideHouseTIles_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -254,8 +254,8 @@ TextureImporter:
       name: InsideHouseTIles_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 64
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -275,8 +275,8 @@ TextureImporter:
       name: InsideHouseTIles_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 80
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -296,7 +296,7 @@ TextureImporter:
       name: InsideHouseTIles_9
       rect:
         serializedVersion: 2
-        x: 48
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -309,6 +309,132 @@ TextureImporter:
       bones: []
       spriteID: 8c8d9561b9e06a845b54cb6f20e9a78f
       internalID: -1839203656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsideHouseTIles_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4e051c1393d8145aee9b26c0ede207
+      internalID: -1004485512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsideHouseTIles_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8511ee92d826cb4aa657b5a97f6d314
+      internalID: -35529074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsideHouseTIles_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c05eba534ecaa4284865d63f5cf016
+      internalID: 1650140645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsideHouseTIles_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05277c08cae2b0d4f888c92e07af741b
+      internalID: 2043343319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsideHouseTIles_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f820027e664dad34388207c76856d0f8
+      internalID: 174737532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InsideHouseTIles_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7042edd6b45f9fe4dbfdc2448ed9f3ce
+      internalID: 790729057
       vertices: []
       indices: 
       edges: []
@@ -328,11 +454,17 @@ TextureImporter:
       InsideHouseTIles_1: -1533040615
       InsideHouseTIles_8: -1214932336
       InsideHouseTIles_3: -411816860
+      InsideHouseTIles_12: 1650140645
+      InsideHouseTIles_13: 2043343319
       InsideHouseTIles_7: 1314690534
+      InsideHouseTIles_10: -1004485512
       InsideHouseTIles_0: -1787659479
       InsideHouseTIles_5: -1633952618
       InsideHouseTIles_4: -296265858
+      InsideHouseTIles_11: -35529074
+      InsideHouseTIles_15: 790729057
       InsideHouseTIles_2: -917114320
+      InsideHouseTIles_14: 174737532
       InsideHouseTIles_6: -2136317773
   spritePackingTag: 
   pSDRemoveMatte: 0
